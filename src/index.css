@@ -1,38 +1,83 @@
+@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=OpenDyslexic&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --font-sans: 'Inter', 'OpenDyslexic', system-ui, sans-serif;
 
-@layer base {
-  body {
-    @apply m-0 min-h-screen;
-    font-family: 'Inter', 'OpenDyslexic', system-ui, sans-serif;
-    letter-spacing: 0.05em;
-    /* Dyslexia-friendly: increased letter spacing */
-    line-height: 1.8;
-    /* Dyslexia-friendly: increased line height */
-  }
+  --color-garden-grass: #7ED957;
+  --color-garden-sky: #87CEEB;
+  --color-garden-sun: #FFD700;
+  --color-garden-soil: #8B4513;
 }
 
-@layer components {
-  .word-card {
-    @apply bg-white rounded-2xl shadow-lg p-6 transition-all duration-300;
-    @apply hover:shadow-xl hover:scale-105;
-  }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
 
-  .game-button {
-    @apply bg-gradient-to-br from-blue-500 to-purple-600 text-white font-bold;
-    @apply py-4 px-8 rounded-xl shadow-md transition-all duration-300;
-    @apply hover:shadow-xl hover:scale-105 active:scale-95;
-  }
+.word-card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  padding: 1.5rem;
+  transition: all 0.3s;
+}
 
+.word-card:hover {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  transform: scale(1.05);
+}
+
+.game-button {
+  background: linear-gradient(to bottom right, #3b82f6, #9333ea);
+  color: white;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.game-button:hover {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  transform: scale(1.05);
+}
+
+.game-button:active {
+  transform: scale(0.95);
+}
+
+.letter-tile {
+  background: linear-gradient(to bottom right, #fde047, #fb923c);
+  color: #1f2937;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  letter-spacing: 0.1em;
+}
+
+.letter-tile:hover:not(:disabled) {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  transform: scale(1.1);
+}
+
+.letter-tile:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+@media (min-width: 768px) {
   .letter-tile {
-    @apply bg-gradient-to-br from-yellow-300 to-orange-400 text-gray-900;
-    @apply font-bold text-2xl md:text-4xl p-4 md:p-6 rounded-xl shadow-md;
-    @apply cursor-pointer transition-all duration-200;
-    @apply hover:shadow-lg hover:scale-110 active:scale-95;
-    /* Large text for readability */
-    letter-spacing: 0.1em;
+    font-size: 2.25rem;
+    padding: 1.5rem 2rem;
   }
 }

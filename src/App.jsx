@@ -149,10 +149,10 @@ function App() {
               <div className="min-h-20 flex items-center justify-center">
                 <motion.div
                   className={`text-4xl md:text-6xl font-bold tracking-widest rounded-2xl px-8 py-4 ${feedback === 'correct'
-                      ? 'bg-green-200 text-green-800'
-                      : feedback === 'incorrect'
-                        ? 'bg-red-200 text-red-800'
-                        : 'bg-white/80 text-gray-800'
+                    ? 'bg-green-200 text-green-800'
+                    : feedback === 'incorrect'
+                      ? 'bg-red-200 text-red-800'
+                      : 'bg-white/80 text-gray-800'
                     }`}
                   key={userAnswer}
                   animate={
@@ -191,7 +191,7 @@ function App() {
                     <RotateCcw className="w-5 h-5" />
                     Opnieuw
                   </motion.button>
-                </motion.div>
+                </div>
               )}
             </motion.div>
           )}
